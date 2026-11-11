@@ -1,4 +1,4 @@
-# Book Haven
+# Wisdombridge Library
 
 A polished, responsive bookstore storefront built with Next.js, TypeScript, Tailwind CSS, Lucide icons, and Framer Motion. Product, category, and sample TZS price data live in `data/books.ts`.
 
@@ -29,9 +29,9 @@ Create an empty GitHub repository, then from this project directory run:
 ```bash
 git init
 git add .
-git commit -m "Build Book Haven bookstore storefront"
+git commit -m "Build Wisdombridge Library bookstore storefront"
 git branch -M main
-git remote add origin https://github.com/YOUR-ACCOUNT/book-haven.git
+git remote add origin https://github.com/YOUR-ACCOUNT/wisdombridge-library.git
 git push -u origin main
 ```
 
