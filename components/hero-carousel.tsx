@@ -28,13 +28,8 @@ export function HeroCarousel() {
 
   return (
     <section className="hero-carousel" aria-label="Featured books carousel">
-      <div className="hero-carousel-kicker"><span className="live-dot"/> THE WISDOMBRIDGE COLLECTION <span>01 — {String(books.length).padStart(2, "0")}</span></div>
+      <div className="hero-carousel-kicker"><span className="carousel-index">0{activeIndex + 1}</span><span>{activeBook.category.toUpperCase()} · WISDOMBRIDGE LIBRARY</span><span>SCROLL TO EXPLORE</span></div>
       <div className="hero-stage" role="region" aria-roledescription="carousel" aria-label="Featured books">
-        <div className="hero-starfield" aria-hidden="true">
-          {Array.from({ length: 24 }, (_, i) => <i key={i} style={{ left: `${(i * 43 + 11) % 97}%`, top: `${(i * 29 + 13) % 87}%`, opacity: .17 + (i % 4) * .08 }}/>) }
-        </div>
-        <div className="hero-orbit hero-orbit-one" aria-hidden="true"/>
-        <div className="hero-orbit hero-orbit-two" aria-hidden="true"/>
         <div className="hero-shelf" aria-hidden="true"/>
         {books.map((book, index) => {
           const offset = ((index - activeIndex + books.length + Math.floor(books.length / 2)) % books.length) - Math.floor(books.length / 2);
@@ -59,15 +54,15 @@ export function HeroCarousel() {
               onClick={() => { setActiveIndex(index); setAdded(false); }}
               aria-label={`Select ${book.title} by ${book.author}`}
               aria-pressed={offset === 0}
-              initial={reduceMotion ? false : { opacity: 0, y: 14 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: reduceMotion ? 0 : .45, ease: [.2, .8, .2, 1] }}
+              initial={reduceMotion ? false : { opacity: 0, y: 34, rotateZ: offset * 2 }}
+              animate={{ opacity: 1, y: 0, rotateZ: offset * 1.6 }}
+              transition={{ duration: reduceMotion ? 0 : .72, ease: [.18, .72, .22, 1], delay: Math.min(depth * .035, .14) }}
             >
               <Cover book={book} large/>
             </motion.button>
           );
         })}
-        <div className="hero-play-ring" aria-hidden="true"><span/></div>
+
         <button type="button" className="carousel-arrow carousel-prev" onClick={() => move(-1)} aria-label="Previous book"><ChevronLeft size={19}/></button>
         <button type="button" className="carousel-arrow carousel-next" onClick={() => move(1)} aria-label="Next book"><ChevronRight size={19}/></button>
       </div>
@@ -91,3 +86,4 @@ export function HeroCarousel() {
     </section>
   );
 }
+
