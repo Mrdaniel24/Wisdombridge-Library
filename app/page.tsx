@@ -22,10 +22,14 @@ export default function Home() {
         <div className="hero-buttons"><Link className="button dark" href="/shop">{sw ? "Gundua vitabu" : "Explore the library"} <ArrowRight size={16}/></Link><Link className="text-link" href="/about">{sw ? "Kuhusu sisi" : "Our story"} <ArrowUpRight size={15}/></Link></div>
         <div className="hero-trust"><span className="trust-avatars"><i>J</i><i>A</i><i>M</i></span><span>{sw ? <>Wasomaji wanapenda<br/><b>kote Tanzania</b></> : <>Chosen with care<br/><b>for readers in Tanzania</b></>}</span><span className="trust-divider"/><span className="rating"><Star size={13} fill="currentColor"/> 4.9 <small>{sw ? "wasomaji" : "reader rating"}</small></span></div>
       </div>
-      <HeroCarousel/>
+      <div className="hero-showcase">
+        <div className="showcase-label"><span className="live-dot"/> {sw ? "VITABU VILIVYOCHAGULIWA" : "A FEW GOOD PLACES TO BEGIN"}<span>01 — 04</span></div>
+        <HeroCarousel/>
+        <div className="showcase-note"><span>Wisdombridge selects</span><b>Ideas that stay with you.</b><Link href="/shop">Discover the collection <ArrowRight size={14}/></Link></div>
+      </div>
     </section>
 
-    <section className="ticker"><div className="ticker-inner"><span>Ideas worth carrying with you <b>✳</b></span><span>Ideas worth carrying with you <b>✳</b></span><span>Ideas worth carrying with you <b>✳</b></span></div></section>
+    <section className="ticker"><div className="ticker-inner"><span>Stories that move you <b>✳</b></span><span>Ideas worth carrying with you <b>✳</b></span><span>Stories that move you <b>✳</b></span><span>Ideas worth carrying with you <b>✳</b></span></div></section>
 
     <section className="authors wrap section-pad"><div className="section-heading"><div><div className="eyebrow">GOOD COMPANY, GREAT BOOKS</div><h2>Meet the minds <em>behind the pages.</em></h2></div><Link href="/shop" className="text-link">Browse all authors <ArrowRight size={15}/></Link></div><div className="author-row">{authors.map(([initial, name, sub], i) => <Link href={`/shop?author=${encodeURIComponent(name)}`} className="author-item" key={name}><div className={`author-avatar avatar-${i}`}><span>{initial}</span></div><div><span className="author-kicker">{sub}</span><strong>{name}</strong></div><ArrowUpRight className="author-arrow" size={16}/></Link>)}</div></section>
 
@@ -38,3 +42,4 @@ export default function Home() {
     <section className="newsletter wrap"><div className="newsletter-mark"><BookOpen size={24}/></div><div><div className="eyebrow">THE WISDOMBRIDGE LETTER</div><h2>Good stories deserve<br/><em>to be shared.</em></h2><p>New arrivals, thoughtful recommendations, and the occasional note from our bookshelves.</p></div><form className="newsletter-form" onSubmit={event => { event.preventDefault(); alert("Thanks for your interest! This demo does not store email addresses yet."); }}><label htmlFor="email">YOUR EMAIL ADDRESS</label><div><input id="email" type="email" required placeholder="you@example.com"/><button type="submit" aria-label="Subscribe"><ArrowRight size={18}/></button></div><small>Demo form · Your email isn’t stored or sent.</small></form></section>
   </>;
 }
+
