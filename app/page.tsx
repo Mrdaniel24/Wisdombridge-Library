@@ -24,6 +24,7 @@ export default function Home() {
       </div>
       <div className="hero-showcase">
         <div className="showcase-label"><span className="live-dot"/> {sw ? "VITABU VILIVYOCHAGULIWA" : "A FEW GOOD PLACES TO BEGIN"}<span>01 — 04</span></div>
+        <div className="showcase-atmosphere" aria-hidden="true"><i/><i/><i/><span/></div>
         <HeroCarousel/>
         <div className="showcase-note"><span>Wisdombridge selects</span><b>Ideas that stay with you.</b><Link href="/shop">Discover the collection <ArrowRight size={14}/></Link></div>
       </div>
